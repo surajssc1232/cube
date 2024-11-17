@@ -18,7 +18,7 @@ function autoRotate() {
 
 function updateRotation() {
     if (cube) {
-        cube.style.transform = `rotateX(${-xDeg}deg) rotateY(${-yDeg}deg)`;
+        cube.style.transform = `rotateX(${xDeg}deg) rotateY(${yDeg}deg)`;
     }
 }
 
@@ -39,8 +39,8 @@ function handleMouseMove(e) {
     let deltaX = currentX - initialX;
     let deltaY = currentY - initialY;
     
-    yDeg = deltaX;
-    xDeg = deltaY;
+    yDeg = -deltaX;
+    xDeg = -deltaY;
     
     updateRotation();
 }
