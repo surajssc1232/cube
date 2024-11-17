@@ -18,7 +18,7 @@ function autoRotate() {
 
 function updateRotation() {
     if (cube) {
-        cube.style.transform = `rotateX(${xDeg}deg) rotateY(${yDeg}deg)`;
+        cube.style.transform = `rotateX(${-xDeg}deg) rotateY(${-yDeg}deg)`;
     }
 }
 
