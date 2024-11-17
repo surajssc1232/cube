@@ -3,7 +3,7 @@ let isDragging = false;
 let currentX, currentY, initialX, initialY;
 let xDeg = 0;
 let yDeg = 0;
-let defaultRotationSpeed = 0.5;
+let defaultRotationSpeed =0.5;
 let rotationSpeedX = 0;
 let rotationSpeedY = defaultRotationSpeed;
 
@@ -54,11 +54,6 @@ function handleMouseUp() {
 function handleTouchStart(e) {
     if (!cube) return;
     
-    // Only handle touch events on the cube itself, not on links
-    if (e.target.tagName === 'A' || e.target.closest('a')) {
-        return;
-    }
-    
     isDragging = true;
     initialX = e.touches[0].clientX - yDeg;
     initialY = e.touches[0].clientY - xDeg;
@@ -66,13 +61,8 @@ function handleTouchStart(e) {
 
 function handleTouchMove(e) {
     if (!isDragging || !cube) return;
-    
-    // Don't prevent default if touching a link
-    if (e.target.tagName === 'A' || e.target.closest('a')) {
-        return;
-    }
-    
     e.preventDefault();
+    
     currentX = e.touches[0].clientX;
     currentY = e.touches[0].clientY;
     
@@ -95,12 +85,11 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('mousedown', handleMouseDown);
     document.addEventListener('mousemove', handleMouseMove);
     document.addEventListener('mouseup', handleMouseUp);
+    document.addEventListener('touchstart', handleTouchStart, { passive: false });
+    document.addEventListener('touchmove', handleTouchMove, { passive: false });
+    document.addEventListener('touchend', handleTouchEnd);
     
     if (cube) {
-        // Attach touch events to the cube
-        cube.addEventListener('touchstart', handleTouchStart, { passive: false });
-        cube.addEventListener('touchmove', handleTouchMove, { passive: false });
-        cube.addEventListener('touchend', handleTouchEnd);
         autoRotate();
     }
 });
