@@ -40,7 +40,7 @@ function handleMouseMove(e) {
     let deltaY = currentY - initialY;
     
     yDeg = -deltaX;
-    xDeg = -deltaY;
+    xDeg = deltaY;
     
     updateRotation();
 }
