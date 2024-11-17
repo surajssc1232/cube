@@ -3,7 +3,7 @@ let isDragging = false;
 let currentX, currentY, initialX, initialY;
 let xDeg = 0;
 let yDeg = 0;
-let defaultRotationSpeed = 1;
+let defaultRotationSpeed = 0.5;
 let rotationSpeedX = 0;
 let rotationSpeedY = defaultRotationSpeed;
 
