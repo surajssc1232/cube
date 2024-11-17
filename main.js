@@ -31,7 +31,7 @@ function handleMouseDown(e) {
 
 function handleMouseMove(e) {
     if (!isDragging || !cube) return;
-    
+    e.preventDefault();
     
     currentX = e.clientX;
     currentY = e.clientY;
@@ -53,7 +53,7 @@ function handleMouseUp() {
 
 function handleTouchStart(e) {
     if (!cube) return;
-    e.preventDefault();
+    
     isDragging = true;
     initialX = e.touches[0].clientX - yDeg;
     initialY = e.touches[0].clientY - xDeg;
