@@ -68,8 +68,8 @@ function handleTouchMove(e) {
     let deltaX = currentX - initialX;
     let deltaY = currentY - initialY;
     
-    yDeg = deltaX;
-    xDeg = deltaY;
+    yDeg = -deltaX;
+    xDeg = -deltaY;
     
     updateRotation();
 }
