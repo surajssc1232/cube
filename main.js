@@ -53,6 +53,7 @@ function handleMouseUp() {
 
 function handleTouchStart(e) {
     if (!cube) return;
+    e.preventDefault();
     isDragging = true;
     initialX = e.touches[0].clientX - yDeg;
     initialY = e.touches[0].clientY - xDeg;
@@ -68,7 +69,7 @@ function handleTouchMove(e) {
     let deltaX = currentX - initialX;
     let deltaY = currentY - initialY;
     
-    yDeg = deltaX;
+    yDeg = -deltaX;
     xDeg = deltaY;
     
     updateRotation();
