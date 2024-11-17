@@ -36,11 +36,9 @@ function handleMouseMove(e) {
     currentX = e.clientX;
     currentY = e.clientY;
     
-    // Calculate rotation based on mouse movement
     let deltaX = currentX - initialX;
     let deltaY = currentY - initialY;
     
-    // Update rotation angles
     yDeg = deltaX;
     xDeg = deltaY;
     
@@ -82,9 +80,7 @@ function handleTouchEnd() {
     rotationSpeedY = defaultRotationSpeed;
 }
 
-// Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', () => {
-    // Add event listeners
     document.addEventListener('mousedown', handleMouseDown);
     document.addEventListener('mousemove', handleMouseMove);
     document.addEventListener('mouseup', handleMouseUp);
@@ -92,7 +88,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('touchmove', handleTouchMove, { passive: false });
     document.addEventListener('touchend', handleTouchEnd);
     
-    // Start auto-rotation
     if (cube) {
         autoRotate();
     }
