@@ -95,12 +95,12 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('mousedown', handleMouseDown);
     document.addEventListener('mousemove', handleMouseMove);
     document.addEventListener('mouseup', handleMouseUp);
-    // Attach touch events to the cube instead of document
-    cube.addEventListener('touchstart', handleTouchStart, { passive: false });
-    cube.addEventListener('touchmove', handleTouchMove, { passive: false });
-    cube.addEventListener('touchend', handleTouchEnd);
     
     if (cube) {
+        // Attach touch events to the cube
+        cube.addEventListener('touchstart', handleTouchStart, { passive: false });
+        cube.addEventListener('touchmove', handleTouchMove, { passive: false });
+        cube.addEventListener('touchend', handleTouchEnd);
         autoRotate();
     }
 });
