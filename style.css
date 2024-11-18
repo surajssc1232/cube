@@ -70,6 +70,20 @@ body {
     word-wrap: break-word;
 }
 
+#footer-text{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    color: wheat;
+    font: space mono;
+    font-size: 15px;
+    padding: 10px;
+    animation: textColorChange 5s infinite;
+    
+}
+
 .face:hover span {
     transform: scale(1.1);
 }
@@ -84,6 +98,14 @@ body {
 .left   { transform: rotateY(-90deg) translateZ(100px); }
 .top    { transform: rotateX(90deg) translateZ(100px); }
 .bottom { transform: rotateX(-90deg) translateZ(100px); }
+
+
+@keyframes textColorChange {
+    0% { color: #ff0000; }
+    33% { color: #00ff00; }
+    66% { color: #0000ff; }
+    100% { color: #ff0000; }
+}
 
 @keyframes rgbFlow {
     0% {
