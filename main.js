@@ -81,6 +81,8 @@ function handleTouchEnd() {
     rotationSpeedY = defaultRotationSpeed;
 }
 
+
+
 document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('mousedown', handleMouseDown);
     document.addEventListener('mousemove', handleMouseMove);
