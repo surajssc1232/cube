@@ -3,9 +3,11 @@ let isDragging = false;
 let currentX, currentY, initialX, initialY;
 let xDeg = 0;
 let yDeg = 0;
-let defaultRotationSpeed =0.5;
+let defaultRotationSpeed = 0.5;
 let rotationSpeedX = 0;
 let rotationSpeedY = defaultRotationSpeed;
+let lastDeltaX = 0;
+let lastDeltaY = 0;
 
 function autoRotate() {
     if (!isDragging) {
@@ -18,15 +20,17 @@ function autoRotate() {
 
 function updateRotation() {
     if (cube) {
-        cube.style.transform = `rotateX(${-xDeg}deg) rotateY(${-yDeg}deg)`;
+        cube.style.transform = `rotateX(${xDeg}deg) rotateY(${yDeg}deg)`;
     }
 }
 
 function handleMouseDown(e) {
     if (!cube) return;
     isDragging = true;
-    initialX = e.clientX - yDeg;
-    initialY = e.clientY - xDeg;
+    initialX = e.clientX;
+    initialY = e.clientY;
+    rotationSpeedX = 0;
+    rotationSpeedY = 0;
 }
 
 function handleMouseMove(e) {
@@ -39,8 +43,11 @@ function handleMouseMove(e) {
     let deltaX = currentX - initialX;
     let deltaY = currentY - initialY;
     
-    yDeg = -deltaX;
-    xDeg = deltaY;
+    yDeg += deltaX * 0.5;
+    xDeg -= deltaY * 0.5;
+    
+    initialX = currentX;
+    initialY = currentY;
     
     updateRotation();
 }
@@ -53,10 +60,11 @@ function handleMouseUp() {
 
 function handleTouchStart(e) {
     if (!cube) return;
-    
     isDragging = true;
-    initialX = e.touches[0].clientX - yDeg;
-    initialY = e.touches[0].clientY - xDeg;
+    initialX = e.touches[0].clientX;
+    initialY = e.touches[0].clientY;
+    rotationSpeedX = 0;
+    rotationSpeedY = 0;
 }
 
 function handleTouchMove(e) {
@@ -69,8 +77,11 @@ function handleTouchMove(e) {
     let deltaX = currentX - initialX;
     let deltaY = currentY - initialY;
     
-    yDeg = -deltaX;
-    xDeg = deltaY;
+    yDeg += deltaX * 0.5;
+    xDeg -= deltaY * 0.5;
+    
+    initialX = currentX;
+    initialY = currentY;
     
     updateRotation();
 }
