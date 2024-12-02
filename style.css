@@ -95,7 +95,36 @@ audio{
     left: 50%;
     transform: translate(-50%);
     z-index: 999;
-    animation: backgroundColorChange 10s linear infinite;
+    background-color: #1a1a1a;
+    color: #fff;
+}
+
+.dark-mode-player {
+    background-color: #1a1a1a;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+#play-pause-btn {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    padding: 10px 20px;
+    background-color: #1a1a1a;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    #play-pause-btn {
+        width: 100%;
+        left: 0;
+        top: 0;
+        border-radius: 0;
+    }
 }
 
 .face:hover span {

@@ -81,7 +81,13 @@ function handleTouchEnd() {
     rotationSpeedY = defaultRotationSpeed;
 }
 
-
+window.addEventListener('load', function() {
+    const audioPlayer = document.querySelector('.dark-mode-player');
+    if (audioPlayer) {
+        audioPlayer.muted = false;
+        audioPlayer.play();
+    }
+});
 
 document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('mousedown', handleMouseDown);
@@ -94,4 +100,15 @@ document.addEventListener('DOMContentLoaded', () => {
     if (cube) {
         autoRotate();
     }
+    
+    document.getElementById('play-pause-btn').addEventListener('click', function() {
+        const audioPlayer = document.querySelector('.dark-mode-player');
+        if (audioPlayer.paused) {
+            audioPlayer.play();
+            this.textContent = 'Pause Music';
+        } else {
+            audioPlayer.pause();
+            this.textContent = 'Play Music';
+        }
+    });
 });
