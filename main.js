@@ -114,13 +114,12 @@ document.addEventListener('DOMContentLoaded', () => {
     
     document.getElementById('play-pause-btn').addEventListener('click', function() {
         const audioPlayer = document.querySelector('.dark-mode-player');
-        const buttonSpan = this.querySelector('span');
-        if (audioPlayer.paused) {
+        if (this.textContent === 'Play Music') {
             audioPlayer.play();
-            buttonSpan.textContent = 'Pause Music';
+            this.textContent = 'Pause Music';
         } else {
             audioPlayer.pause();
-            buttonSpan.textContent = 'Play Music';
+            this.textContent = 'Play Music';
         }
     });
 });
