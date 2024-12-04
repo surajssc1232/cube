@@ -112,14 +112,12 @@ document.addEventListener('DOMContentLoaded', () => {
         autoRotate();
     }
     
-    document.getElementById('play-pause-btn').addEventListener('click', function() {
+    document.getElementById('play-pause-btn').addEventListener('change', function() {
         const audioPlayer = document.querySelector('.dark-mode-player');
-        if (this.textContent === 'Play Music') {
+        if (this.checked) {
             audioPlayer.play();
-            this.textContent = 'Pause Music';
         } else {
             audioPlayer.pause();
-            this.textContent = 'Play Music';
         }
     });
 });
